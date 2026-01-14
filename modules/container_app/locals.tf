@@ -1,0 +1,21 @@
+locals {
+  container_app_env_name1            = "${var.prefix}-container-app-env-1"
+  container_app_env_name2            = "${var.prefix}-container-app-env-2"
+  container_app_logs_destination     = "log-analytics"
+  container_app_name1                = "${var.prefix}-container-app-1"
+  container_app_name2                = "${var.prefix}-container-app-2"
+  container_revision_mode            = "Single"
+  container_name1                    = "flask1"
+  container_name2                    = "flask2"
+  container_cpu                      = "0.25"
+  container_memory                   = "0.5Gi"
+  min_replicas                       = 1
+  max_replicas                       = 3
+  ingress_allow_insecure_connections = true
+  container_port                     = 8080
+  isexternal_enabled                 = true
+  transport_protocol                 = "auto"
+  traffic_percentage                 = 100
+  public_network_access_disabled     = "Disabled"
+  traffic_latest_revision            = true
+}

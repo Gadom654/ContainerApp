@@ -19,7 +19,22 @@ variable "resource_group_name" {
   description = "The name of the resource group in which to create the storage account."
 }
 
-variable "github_access_token" {
+variable "container_law_id" {
   type        = string
-  description = "The GitHub access token used to access private repositories."
+  description = "The ID of the Log Analytics Workspace for the Container App."
+}
+
+variable "private_subnet_1_id" {
+  type        = string
+  description = "The ID of the first private subnet for the Container App Environment."
+}
+
+variable "private_subnet_2_id" {
+  type        = string
+  description = "The ID of the second private subnet for the Container App Environment."
+}
+
+variable "container_image_url" {
+  type        = string
+  description = "The URL of the container image to be used in the Container App."
 }

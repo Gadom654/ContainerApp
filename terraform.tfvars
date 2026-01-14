@@ -1,8 +1,8 @@
-prefix   = "AkademiaFlaskApp"
+prefix   = "akademiaflaskapp"
 location = "westeurope"
 tags = {
-  "project" = "static-web-app"
+  "project"     = "static-web-app"
   "environment" = "production"
-  "owner" = "Dominik"
-  "created_by" = "Terraform"
+  "owner"       = "Dominik"
+  "created_by"  = "Terraform"
 }

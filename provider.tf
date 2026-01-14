@@ -4,15 +4,11 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "~> 4.57.0"
     }
-    docker = {
-      source = "kreuzwerker/docker"
-      version = "3.6.2"
-    }
   }
   backend "azurerm" {
     resource_group_name  = "tfstate"
     storage_account_name = "tfstate5146"
-    container_name       = "ContainerAppTerraformState"
+    container_name       = "containerapp"
     key                  = "terraform.tfstate"
   }
 }

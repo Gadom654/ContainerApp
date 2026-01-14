@@ -18,3 +18,21 @@ variable "resource_group_name" {
   type        = string
   description = "The name of the resource group in which to create the storage account."
 }
+
+variable "app_1_domain" {
+  type        = string
+  description = "The custom domain for Container App 1."
+}
+
+variable "app_2_domain" {
+  type        = string
+  description = "The custom domain for Container App 2."
+}
+variable "container_app_env_1_ip" {
+  type        = string
+  description = "The internal IP address of the Container App Environment 1."
+}
+variable "container_app_env_2_ip" {
+  type        = string
+  description = "The internal IP address of the Container App Environment 1."
+}

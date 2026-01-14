@@ -19,7 +19,20 @@ variable "resource_group_name" {
   description = "The name of the resource group in which to create the storage account."
 }
 
-variable "github_access_token" {
+variable "public_subnet_1_id" {
   type        = string
-  description = "The GitHub access token used to access private repositories."
+  description = "The ID of the public subnet to deploy the Application Gateway into."
+}
+
+variable "public_subnet_2_id" {
+  type        = string
+  description = "The ID of the second public subnet to deploy the Application Gateway into."
+}
+variable "app_1_url" {
+  type        = string
+  description = "The FQDN of the first backend application to route traffic to."
+}
+variable "app_2_url" {
+  type        = string
+  description = "The FQDN of the second backend application to route traffic to."
 }
