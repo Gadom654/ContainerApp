@@ -124,3 +124,108 @@ resource "azurerm_container_app" "PrivateContainerApp2" {
     }
   }
 }
+##################################
+### Azure monitor autoscailing ###
+##################################
+resource "azurerm_monitor_autoscale_setting" "PrivateContainerApp1autoscale" {
+  name                = local.private_container_app_name1-autoscale
+  resource_group_name = var.resource_group_name
+  target_resource_id  = azurerm_container_app.PrivateContainerApp1.id
+  location            = var.location
+  tags                = var.tags
+  profile {
+    name = local.autoscale_profile_1_name
+    capacity {
+      minimum = tostring(local.min_replicas)
+      maximum = tostring(local.max_replicas)
+      default = tostring(local.min_replicas)
+    }
+    rule {
+      metric_trigger {
+        metric_name        = local.autoscaling_metric_name
+        metric_resource_id = azurerm_container_app.PrivateContainerApp1.id
+        time_grain         = local.monitoring_time_grain
+        statistic          = local.monitoring_statistic
+        time_window        = local.monitoring_time_window
+        time_aggregation   = local.monitoring_time_aggregation
+        operator           = local.autoscaling_operator_greater
+        threshold          = local.autoscaling_threshold_high
+      }
+      scale_action {
+        direction = local.scale_up_direction
+        type      = local.scale_up_type
+        value     = local.scale_up_value
+        cooldown  = local.scale_up_cooldown
+      }
+    }
+    rule {
+      metric_trigger {
+        metric_name        = local.autoscaling_metric_name
+        metric_resource_id = azurerm_container_app.PrivateContainerApp1.id
+        time_grain         = local.monitoring_time_grain
+        statistic          = local.monitoring_statistic
+        time_window        = local.monitoring_time_window
+        time_aggregation   = local.monitoring_time_aggregation
+        operator           = local.autoscaling_operator_less
+        threshold          = local.autoscaling_threshold_low
+      }
+      scale_action {
+        direction = local.scale_down_direction
+        type      = local.scale_down_type
+        value     = local.scale_down_value
+        cooldown  = local.scale_down_cooldown
+      }
+    }
+  }
+}
+resource "azurerm_monitor_autoscale_setting" "PrivateContainerApp2autoscale" {
+  name                = local.private_container_app_name2-autoscale
+  resource_group_name = var.resource_group_name
+  target_resource_id  = azurerm_container_app.PrivateContainerApp2.id
+  location            = var.location
+  tags                = var.tags
+  profile {
+    name = local.autoscale_profile_2_name
+    capacity {
+      minimum = tostring(local.min_replicas)
+      maximum = tostring(local.max_replicas)
+      default = tostring(local.min_replicas)
+    }
+    rule {
+      metric_trigger {
+        metric_name        = local.autoscaling_metric_name
+        metric_resource_id = azurerm_container_app.PrivateContainerApp2.id
+        time_grain         = local.monitoring_time_grain
+        statistic          = local.monitoring_statistic
+        time_window        = local.monitoring_time_window
+        time_aggregation   = local.monitoring_time_aggregation
+        operator           = local.autoscaling_operator_greater
+        threshold          = local.autoscaling_threshold_high
+      }
+      scale_action {
+        direction = local.scale_up_direction
+        type      = local.scale_up_type
+        value     = local.scale_up_value
+        cooldown  = local.scale_up_cooldown
+      }
+    }
+    rule {
+      metric_trigger {
+        metric_name        = local.autoscaling_metric_name
+        metric_resource_id = azurerm_container_app.PrivateContainerApp2.id
+        time_grain         = local.monitoring_time_grain
+        statistic          = local.monitoring_statistic
+        time_window        = local.monitoring_time_window
+        time_aggregation   = local.monitoring_time_aggregation
+        operator           = local.autoscaling_operator_less
+        threshold          = local.autoscaling_threshold_low
+      }
+      scale_action {
+        direction = local.scale_down_direction
+        type      = local.scale_down_type
+        value     = local.scale_down_value
+        cooldown  = local.scale_down_cooldown
+      }
+    }
+  }
+}
