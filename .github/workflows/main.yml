@@ -46,8 +46,8 @@ jobs:
       ARM_CLIENT_ID: ${{ vars.ARM_CLIENT_ID_PLAN }}
       ARM_TENANT_ID: ${{ vars.ARM_TENANT_ID }}
       ARM_SUBSCRIPTION_ID: ${{ vars.ARM_SUBSCRIPTION_ID }}
-      TF_VAR_CONTAINER_REGISTRY_ADMIN_PASSWORD: ${{ secrets.TF_VAR_CONTAINER_REGISTRY_ADMIN_PASSWORD }}
-      TF_VAR_GITHUB_ACCESS_TOKEN: ${{ secrets.TF_VAR_GITHUB_ACCESS_TOKEN }}
+      TF_VAR_container_registry_admin_password: ${{ secrets.TF_VAR_CONTAINER_REGISTRY_ADMIN_PASSWORD }}
+      TF_VAR_github_access_token: ${{ secrets.TF_VAR_GITHUB_ACCESS_TOKEN }}
       ARM_USE_OIDC: true
     steps:
       - uses: actions/checkout@v4
