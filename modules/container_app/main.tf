@@ -70,6 +70,12 @@ resource "azurerm_container_app" "PrivateContainerApp1" {
       cpu    = local.container_cpu
       memory = local.container_memory
     }
+    min_replicas = local.min_replicas
+    max_replicas = local.max_replicas
+    http_scale_rule {
+      name = local.http_scale_rule_name
+      concurrent_requests = local.concurrent_requests_autobalancer
+    }
   }
   ingress {
     allow_insecure_connections = local.ingress_allow_insecure_connections
@@ -107,6 +113,12 @@ resource "azurerm_container_app" "PrivateContainerApp2" {
       image  = var.container_image_url
       cpu    = local.container_cpu
       memory = local.container_memory
+    }
+    min_replicas = local.min_replicas
+    max_replicas = local.max_replicas
+    http_scale_rule {
+      name = local.http_scale_rule_name
+      concurrent_requests = local.concurrent_requests_autobalancer
     }
   }
   ingress {

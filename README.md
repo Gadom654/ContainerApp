@@ -1,4 +1,4 @@
-# Azure Containers App v1.2.0
+# Azure Containers App v1.2.1
 
 This repository contains a simple Flask application that is deployed to Azure Container Apps using Terraform.
 
@@ -54,6 +54,8 @@ terraform plan – Previews the infrastructure changes and validates your config
 
 terraform apply – Provisions the Azure resources and outputs your site URL.
 ## Changelog
+Version 1.2.1:
+    - added imposible to achive scaling rule on containers app
 Version 1.2.0:
     - added autoscaling based on CPU usage
 Version 1.1.1:

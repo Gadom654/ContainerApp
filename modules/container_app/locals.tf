@@ -47,4 +47,6 @@ locals {
   scale_down_value                      = 1
   scale_down_cooldown                   = "PT5M"
   autoscale_profile_2_name              = "cpu-scale-profile2"
+  http_scale_rule_name                  = "http-scale-rule"
+  concurrent_requests_autobalancer     = 5000000
 }
