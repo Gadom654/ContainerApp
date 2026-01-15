@@ -34,8 +34,8 @@ locals {
   monitoring_statistic                  = "Average"
   monitoring_time_window                = "PT5M"
   monitoring_time_aggregation           = "Average"
-  autoscaling_operator_greater          = "GreaterThanOrEqualTo"
-  autoscaling_operator_less             = "LessThanOrEqualTo"
+  autoscaling_operator_greater          = "GreaterThanOrEqual"
+  autoscaling_operator_less             = "LessThanOrEqual"
   autoscaling_threshold_high            = 50
   autoscaling_threshold_low             = 25
   scale_up_direction                    = "Increase"
