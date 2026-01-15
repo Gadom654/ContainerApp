@@ -18,4 +18,12 @@ locals {
   traffic_percentage                 = 100
   public_network_access_disabled     = "Disabled"
   traffic_latest_revision            = true
+  workload_name                      = "Consumption"
+  workload_type                      = "Consumption"
+  count                              = 0
+  ContainerEnv1RG_name               = "${var.prefix}-container-env-1-rg"
+  ContainerEnv2RG_name               = "${var.prefix}-container-env-2-rg"
+  container_registry_password_name1  = "${var.prefix}-container-registry-password-1"
+  container_registry_password_name2  = "${var.prefix}-container-registry-password-2"
+  is_internal_load_balancer_enabled  = true
 }

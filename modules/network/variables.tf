@@ -36,3 +36,11 @@ variable "container_app_env_2_ip" {
   type        = string
   description = "The internal IP address of the Container App Environment 1."
 }
+variable "app_gateway_1_public_ip" {
+  type        = string
+  description = "The public IP address of Application Gateway 1."
+}
+variable "app_gateway_2_public_ip" {
+  type        = string
+  description = "The public IP address of Application Gateway 2."
+}

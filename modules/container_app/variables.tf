@@ -38,3 +38,15 @@ variable "container_image_url" {
   type        = string
   description = "The URL of the container image to be used in the Container App."
 }
+variable "container_image_registry_server" {
+  type        = string
+  description = "The container registry server for the container image."
+}
+variable "container_registry_admin_username" {
+  type        = string
+  description = "The admin username for the container registry."
+}
+variable "container_registry_admin_password" {
+  type        = string
+  description = "The admin password for the container registry."
+}

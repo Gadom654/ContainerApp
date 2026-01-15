@@ -6,6 +6,7 @@ resource "azurerm_public_ip" "AppGateway1PIP" {
   location            = var.location
   resource_group_name = var.resource_group_name
   allocation_method   = local.IP_allocation_method
+  tags                = var.tags
 }
 resource "azurerm_application_gateway" "AppGateway1" {
   name                = local.AppGateway1Name
@@ -39,12 +40,14 @@ resource "azurerm_application_gateway" "AppGateway1" {
   }
 
   backend_http_settings {
-    name                  = local.backendHttpSettingsName1
-    cookie_based_affinity = local.is_cookie_based_affinity_enabled
-    port                  = local.backendHttpSettingsPort
-    protocol              = local.backendHttpSettingsProtocol
-    request_timeout       = local.backendHttpSettingsRequestTimeout
-    path                  = local.backendHttpSettingsPath
+    name                                = local.backendHttpSettingsName1
+    cookie_based_affinity               = local.is_cookie_based_affinity_enabled
+    port                                = local.backendHttpSettingsPort
+    protocol                            = local.backendHttpSettingsProtocol
+    request_timeout                     = local.backendHttpSettingsRequestTimeout
+    path                                = local.backendHttpSettingsPath
+    probe_name                          = local.probeName1
+    pick_host_name_from_backend_address = local.pickhostnamefrombackendhttpsettings
   }
 
   http_listener {
@@ -71,6 +74,9 @@ resource "azurerm_application_gateway" "AppGateway1" {
     timeout                                   = local.probeTimeout
     unhealthy_threshold                       = local.probeUnhealthyThreshold
     port                                      = local.probePort
+    match {
+      status_code = local.matching_status_code
+    }
   }
   tags = var.tags
 }
@@ -112,12 +118,14 @@ resource "azurerm_application_gateway" "AppGateway2" {
   }
 
   backend_http_settings {
-    name                  = local.backendHttpSettingsName2
-    cookie_based_affinity = local.is_cookie_based_affinity_enabled
-    port                  = local.backendHttpSettingsPort
-    protocol              = local.backendHttpSettingsProtocol
-    request_timeout       = local.backendHttpSettingsRequestTimeout
-    path                  = local.backendHttpSettingsPath
+    name                                = local.backendHttpSettingsName2
+    cookie_based_affinity               = local.is_cookie_based_affinity_enabled
+    port                                = local.backendHttpSettingsPort
+    protocol                            = local.backendHttpSettingsProtocol
+    request_timeout                     = local.backendHttpSettingsRequestTimeout
+    path                                = local.backendHttpSettingsPath
+    probe_name                          = local.probeName2
+    pick_host_name_from_backend_address = local.pickhostnamefrombackendhttpsettings
   }
 
   http_listener {
@@ -145,6 +153,9 @@ resource "azurerm_application_gateway" "AppGateway2" {
     timeout                                   = local.probeTimeout
     unhealthy_threshold                       = local.probeUnhealthyThreshold
     port                                      = local.probePort
+    match {
+      status_code = local.matching_status_code
+    }
   }
 
   tags = var.tags

@@ -39,4 +39,5 @@ locals {
   probePort                           = 80
   pickhostnamefrombackendhttpsettings = true
   probeName2                          = "appGatewayProbe2"
+  matching_status_code                = ["200-399"]
 }
