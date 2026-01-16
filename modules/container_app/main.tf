@@ -70,6 +70,8 @@ resource "azurerm_container_app" "PrivateContainerApp1" {
       cpu    = local.container_cpu
       memory = local.container_memory
     }
+    min_replicas = local.min_replicas
+    max_replicas = local.max_replicas
     custom_scale_rule {
       custom_rule_type = local.custom_rule_type
       metadata = {
